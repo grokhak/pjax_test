@@ -5,25 +5,22 @@
 <script type="text/javascript" src="js/pace.min.js"></script>
 <link rel="stylesheet" href="css/dataurl.css" />
 <script type="text/javascript">
-    //リンククリック時
-    $(document).on("click", "a.link", function(e){
-                e.preventDefault();
-                var href = $(this).attr("href");
-                //フェードアウト
-                $("#content").animate({opacity:0}, 'fast', function(){
-                    $.pjax({url:href, container:"#content", fragment:"#content", timeout:1000});
-                });
-            }
-    );
+//リンククリック時
+$(document).on("click", "a.link", function(e){
+            e.preventDefault();
+            var href = $(this).attr("href");
+            //フェードアウト
+            $("#content").animate({opacity:0}, 'fast', function(){
+                $.pjax({url:href, container:"#content", fragment:"#content", timeout:1000});
+            });
+        }
+);
 
-    $(document).on('pjax:end', function() {
-        $('#content').animate({
-            opacity : 1
-        }, 'fast');
-    });
-
-
-
+$(document).on('pjax:end', function() {
+    $('#content').animate({
+        opacity : 1
+    }, 'fast');
+});
 </script>
 </head>
 <body>
